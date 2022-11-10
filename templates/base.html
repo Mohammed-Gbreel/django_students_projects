@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+    <!-- Some Important Meta-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Links -->
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"> 
+        {% if title %}
+            <title>Students Projects - {{ title }}</title>
+        {% else %}
+            <title>Students Projects</title>
+        {% endif %}    
+    </head>
+    <body>
+        <!--Start Header -->
+        <header class="site-header">
+            <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+                <div class="container">
+                    {% comment %} <div id="login-btn" class="fas fa-fire"></div>
+                    <a class="navbar-brand mr-4" href="#">Projects</a> {% endcomment %}
+                    <div class="dropdown">
+                        <button class="btn btn-outline-none dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expand="false">
+                            <a class="navbar-brand mr-4 text-muted" href="#">{{ user.first_name }} {{ user.last_name }}</a>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'profile' %}">الملف الشخصي</a></li>
+                            <li><a class="dropdown-item" href="#">تغيير كلمة المرور</a></li>
+                            <li><a class="dropdown-item" href="{% url 'logout' %}">تسجيل الخروج</a></li>
+                        </ul>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse navbar-collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarToggle">
+                        <div class="navbar-nav mr-auto"></div>
+                    </div>
+                    <!-- Navbar Right -->
+                    {% if user.is_authenticated %}
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="#">المقترحات</a>
+                        <a class="nav-item nav-link" href="#">الطلاب</a>
+                        <a class="nav-item nav-link" href="#">المشرفين</a>
+                        <a class="nav-item nav-link" href="#">المشاريع</a>
+                        <a class="nav-item nav-link" href="{% url 'project-home' %}">الرئيسية</a>
+                        <a class="navbar-brand mr-4" href="#">Projects</a>
+                        <div id="login-btn" class="fas fa-fire"></div>
+                    </div>
+                    {% else %}
+                    <a class="navbar-brand mr-4" href="#">Projects</a>
+                    <div id="login-btn" class="fas fa-fire"></div>
+                    {% endif %}
+                </div>
+            </nav>
+        </header>
+        <!-- End Header -->
+
+        <!-- Start Content -->
+            {% block content %}{% endblock content %}  
+        <!-- End Content -->
+
+        <!-- Bootstrap Js Links -->
+        <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>    
+    </body>
+</html>

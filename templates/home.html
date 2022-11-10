@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!--Start Main Ssction -->
+    <div class="banner">
+        <div class="content">
+            <h1 class="headerh">جميع المشاريع في مكان واحد</h1>
+            <p>جميع المشاريع في مكان واحد لتسهيل معرفة المشاريع الموجودة مسبقا والاطلاع عليها من قبل الطلاب
+                <br>و إقتراح مشاريع  جديدة لتسهيل حصول جميع الطلاب على افكار جديدة </p>
+                <form action="">
+                    <input type="search" id="home-search" placeholder="أبحث عن مشروع" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <label fore="home-search" class="fas fa-search"></label>
+                </form>    
+            {% comment %} <div>
+                <button type="button"><span></span>دخول</button>
+                <button type="button"><span></span>تسجيل</button>
+            </div>    {% endcomment %}
+        </div>
+    </div>
+    <!-- End Main Section -->
+
+    <!-- Start Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <div id="login-btn" class="fas fa-search"></div>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">بحث عن مشروع</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                !..الرجاء الدخول إلى قسم المشاريع لتجد ما تريد 
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">حسناً فهمت</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- End Modal -->
+
+    <!-- Start Body -->
+    <div class="container">
+    </div>
+    <!-- End Body -->
+{% endblock content%}
+
+
+
+
